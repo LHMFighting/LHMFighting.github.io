@@ -37,13 +37,13 @@ HTML DOM树解析完之后，会进行样式计算：在这个过程中会根据
 一般网页应用当然不会只有一张render layer位图，如果HTML元素使用scaleZ、will-change等属性会专门新建一个render layer去给这元素进行渲染，所以提升成一个独立的render layer之后自然Style、Layout、Paint等过程的消耗自然会小很多。但是render layer增加了之后也需要合并这些render layer的位图成一张位图最终展示在屏幕上，因此需要进行Composite（复合）render layer。
 ## 渲染更新过程分析
 ### Relayout
-无法复制加载中的内容
+![image](https://user-images.githubusercontent.com/20478828/113597062-be1b6480-966d-11eb-8c01-d52cd3fb2377.png)
 用户触发事件，开始执行JavaScript操作DOM，改变元素的几何属性（比如width、margin-left），就会触发Style过程重新计算样式规则，再触发Layout过程生成新的Layout树，再触发Paint过程绘制位图，最后再触发Composite过程将多张位图合成一张位图。
 ### Repaint
-无法复制加载中的内容
+![image](https://user-images.githubusercontent.com/20478828/113597085-c83d6300-966d-11eb-8aab-2ace49846f85.png)
 用户触发事件，开始执行JavaScript改变DOM，改变元素的外观属性（比如color、background），除了不会触发Layout过程，其余过程与Relayout过程一样。
 ### Composite
-无法复制加载中的内容
+![image](https://user-images.githubusercontent.com/20478828/113597211-f458e400-966d-11eb-8d71-08842b78cef1.png)
 用户触发事件，开始执行JavaScript改变DOM，改变元素会提升渲染层的属性（比如scaleZ、will-change），那么此时就会在独立渲染层执行Layout、Paint，性能消耗忽略不计。而主文档流的渲染层就会跳过Layout、Paint的过程，直接与独立渲染层进行合成。
 # 如何提高渲染性能
 ## 减少长时间的JavaScript执行
