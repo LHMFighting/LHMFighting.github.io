@@ -24,7 +24,7 @@ A：重绘不一定导致重排，重排肯定会导致重绘，实际
 # 渲染过程
 ## 首次渲染过程分析
 ### Parsing
-UI渲染线程拿到HTML文档的时候开始解析html 标签成DOM树。UI渲染线程在执行Parsing的过程也会启动一个Preload Sanner进行扫描正在形成的DOM树上有没有img、link等加载外部资源的标签或者属性，如果发现就会通知I/O线程转发加载外部资源的请求给浏览器主进程的网络线程进行资源加载。
+UI渲染线程拿到HTML文档的时候开始解析html 标签成DOM树。UI渲染线程在执行Parsing的过程也会启动一个Preload Scanner进行扫描正在形成的DOM树上有没有img、link等加载外部资源的标签或者属性，如果发现就会通知I/O线程转发加载外部资源的请求给浏览器主进程的网络线程进行资源加载。
 ### JavaScript
 UI渲染线程在执行Parsing的过程一旦解析遇到script等包含JavaScript代码的标签或者属性，就会立马停止Parsing，去加载JavaScript代码，调用V8去解析、执行JavaScript代码。因为JavaScript代码会有DOM API操作会改变DOM树，比如appendChild、removeChild等涉及到html元素布局的修改，或者是dom.style = "color: red"之类的操作html对应的css样式。
 ### Style
