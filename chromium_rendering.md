@@ -50,7 +50,7 @@ HTML DOM树解析完之后，会进行样式计算：在这个过程中会根据
 用户触发事件，开始执行JavaScript改变DOM，改变元素会提升渲染层的属性（比如scaleZ、will-change），那么此时就会在独立渲染层执行Layout、Paint，性能消耗忽略不计。而主文档流的渲染层就会跳过Layout、Paint的过程，直接与独立渲染层进行合成。
 # 如何提高渲染性能
 ## 减少长时间的JavaScript执行
-不仅上面提到的首次渲染过程中的Parsing会被JavaScript执行打断，渲染更新过程中的Style和Layout过程也是会被JavaScript的执行打断。如果长时间执行JavaScript，那么就会阻止Parsing、Style、Layout的过程，于是用户就会在这段时间内发现页面样式、布局没有改变且操作无法响应。=
+不仅上面提到的首次渲染过程中的Parsing会被JavaScript执行打断，渲染更新过程中的Style和Layout过程也是会被JavaScript的执行打断。如果长时间执行JavaScript，那么就会阻止Parsing、Style、Layout的过程，于是用户就会在这段时间内发现页面样式、布局没有改变且操作无法响应。
 ## 减少样式选择器的数量和复杂度
 Style过程取决于css选择器复杂度，如果css选择器过多以及过于复杂，那么就会影响计算CSSOM的速度。
 ## 避免大型、复杂的布局
