@@ -56,4 +56,5 @@ Parsing过程速度、Layout过程速度与HTML标签数量、嵌套层级、复
 做动画的时候，需要适当地使用will-change提升动画元素的渲染层，脱离主文档流的渲染层，避免频繁改变主文档流的布局，造成Relayout、Repaint的性能浪费。
 # 参考
 [Rendering Performance](https://developers.google.com/web/fundamentals/performance/rendering)
+   
 [Taobao FED | 淘系前端团队](https://fed.taobao.org/blog/taofed/do71ct/performance-composite/)
