@@ -12,15 +12,15 @@ A：重绘不一定导致重排，重排肯定会导致重绘，实际
 4. 第三方插件进程：浏览器有很多插件，都运行在第三方插件进程里，防止插件进程影响到主进程等其他进程
 ## 渲染进程的主要线程类型
 1. UI渲染线程（renderer thread）：渲染进程的主线程
-  1. 解析HTML，CSS，构建DOM树和CSSOM树，布局和绘制等
-  2. 当HTML解析script标签时，就会解析script里的Javascript脚本程序（Chromium使用的是V8，Safari用的是JavaScriptCore），阻塞html、css的解析
+   1. 解析HTML，CSS，构建DOM树和CSSOM树，布局和绘制等
+   2. 当HTML解析script标签时，就会解析script里的Javascript脚本程序（Chromium使用的是V8，Safari用的是JavaScriptCore），阻塞html、css的解析
 2. I/O线程
-  1. 负责转发渲染进程与浏览器主进程之间的通信消息
-  2. 负责网络资源请求加载，比如UI渲染线程解析到link标签、img标签、script标签加载外部资源的时候就会通知到I/O线程转发加载资源消息到浏览器主进程的网络线程
+   1. 负责转发渲染进程与浏览器主进程之间的通信消息
+   2. 负责网络资源请求加载，比如UI渲染线程解析到link标签、img标签、script标签加载外部资源的时候就会通知到I/O线程转发加载资源消息到浏览器主进程的网络线程
 3. 其他线程
-  1. Worker线程（web worker、service worker）
-  2. 光栅化线程（raster thread）：当一个个layer tree创建完并且绘制顺序确定了之后，就开始光栅化成一个个位图
-  3. 复合线程（compositor thread）：合成一张张render layer位图合成一张位图
+   1. Worker线程（web worker、service worker）
+   2. 光栅化线程（raster thread）：当一个个layer tree创建完并且绘制顺序确定了之后，就开始光栅化成一个个位图
+   3. 复合线程（compositor thread）：合成一张张render layer位图合成一张位图
 # 渲染过程
 ## 首次渲染过程分析
 ### Parsing
@@ -54,3 +54,6 @@ Style过程取决于css选择器复杂度，如果css选择器过多以及过于
 Parsing过程速度、Layout过程速度与HTML标签数量、嵌套层级、复杂布局呈正相关。如果频繁地触发Relayout消耗比较大，并且Relayout基本作用于整个HTML文档的。
 ## 适当使用提升元素渲染层
 做动画的时候，需要适当地使用will-change提升动画元素的渲染层，脱离主文档流的渲染层，避免频繁改变主文档流的布局，造成Relayout、Repaint的性能浪费。
+# 参考
+[Rendering Performance](https://developers.google.com/web/fundamentals/performance/rendering)
+[Taobao FED | 淘系前端团队](https://fed.taobao.org/blog/taofed/do71ct/performance-composite/)
