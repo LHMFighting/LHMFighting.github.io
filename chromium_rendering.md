@@ -58,3 +58,5 @@ Parsing过程速度、Layout过程速度与HTML标签数量、嵌套层级、复
 [Rendering Performance](https://developers.google.com/web/fundamentals/performance/rendering)
    
 [Taobao FED | 淘系前端团队](https://fed.taobao.org/blog/taofed/do71ct/performance-composite/)
+
+[The stacking context - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
