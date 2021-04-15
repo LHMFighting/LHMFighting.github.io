@@ -16,7 +16,7 @@ A：重绘不一定导致重排，重排肯定会导致重绘
 ## 渲染进程的主要线程类型
 1. UI渲染线程（renderer thread）：渲染进程的主线程
    1. 解析HTML，CSS，构建DOM树和CSSOM树，布局和绘制等
-   2. 当HTML解析script标签时，就会解析script里的Javascript脚本程序（Chromium使用的是V8，Safari用的是JavaScriptCore），阻塞html、css的解析
+   2. 当HTML解析script标签时，就会解析script里的Javascript脚本程序（Chromium使用的是V8，Safari用的是JavaScriptCore），阻塞html的解析
 2. I/O线程
    1. 负责转发渲染进程与浏览器主进程之间的通信消息
    2. 负责网络资源请求加载，比如UI渲染线程解析到link标签、img标签、script标签加载外部资源的时候就会通知到I/O线程转发加载资源消息到浏览器主进程的网络线程
