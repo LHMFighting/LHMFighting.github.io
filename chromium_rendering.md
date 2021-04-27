@@ -13,6 +13,11 @@ A：重绘不一定导致重排，重排肯定会导致重绘
 2. 渲染进程：基本每个浏览器标签页都是一个渲染进程，在内存紧张的时候会合并成一个进程
 3. GPU进程：用户绘制3D图形和动画绘制
 4. 第三方插件进程：浏览器有很多插件，都运行在第三方插件进程里，防止插件进程影响到主进程等其他进程
+
+打开 Chrome 的任务管理器的窗口，如下图:
+![image](https://user-images.githubusercontent.com/20478828/116203970-d5caa200-a76e-11eb-98f0-a44551d9a11d.png)
+![image](https://user-images.githubusercontent.com/20478828/116204003-e1b66400-a76e-11eb-813e-7acbd7af5bc1.png)
+
 ## 渲染进程的主要线程类型
 1. UI渲染线程（renderer thread）：渲染进程的主线程
    1. 解析HTML，CSS，构建DOM树和CSSOM树，布局和绘制等
