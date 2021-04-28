@@ -45,8 +45,7 @@
   <link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet" />
   <link rel="stylesheet" href="./parsing.css" />
   <style>
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
     }
