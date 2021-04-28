@@ -27,7 +27,7 @@
 ![image](https://user-images.githubusercontent.com/20478828/116344499-e5062a00-a818-11eb-9b74-e4bdaacb5cb0.png)
 
 # 渲染过程
-以下面的demo为例子讲解
+以下面的例子结合Performance面板看看渲染流程
 ```
 // parsing.html
 <!DOCTYPE html>
