@@ -130,18 +130,6 @@ JavaScript下载和执行会阻塞parsing的过程
 3. Parse html 43~-1行
 ![image](https://user-images.githubusercontent.com/20478828/116345511-dde01b80-a81a-11eb-8b10-b71fff59e165.png)
 
-4. 跳过的打断Parsing的过程
-
-45行的script加载fastdom.js的过程被跳过是由于在Parsing 0到21行的时候已经去请求fastdom的资源，并且在parsing 43到-1行执行之前请求就回来并且执行完了fastdom的初始化代码，于是45行本来要打断parsing过程却直接跳过了
-   - 发送请求
-![image](https://user-images.githubusercontent.com/20478828/116345757-5cd55400-a81b-11eb-8fed-7e60f959ee7d.png)
-
-   - 收到数据
-![image](https://user-images.githubusercontent.com/20478828/116345786-665ebc00-a81b-11eb-8a37-e030faa38fd4.png)
-
-   - 执行javasript代码
-![image](https://user-images.githubusercontent.com/20478828/116345949-be95be00-a81b-11eb-90d7-67d942eac416.png)
-
 #### 有async属性
 JavaScript异步下载不会阻塞parsing的过程，但是下载完之后会立即执行代码阻塞Parsing的过程
 
