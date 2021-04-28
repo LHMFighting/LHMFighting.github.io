@@ -23,7 +23,7 @@
    2. 光栅化线程（raster thread）：当一个个layer tree创建完并且绘制顺序确定了之后，就开始光栅化成一个个位图
    3. 复合线程（compositor thread）：合成一张张render layer位图合成一张位图
 
-如下图所示：
+浏览器中可看到各线程情况：
 ![image](https://user-images.githubusercontent.com/20478828/116344499-e5062a00-a818-11eb-9b74-e4bdaacb5cb0.png)
 
 # 渲染过程
